@@ -1,10 +1,8 @@
 package component
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.web.elements.Button
 import androidx.compose.web.elements.Div
 import androidx.compose.web.elements.Li
@@ -15,7 +13,7 @@ import model.Player
 
 @Composable
 fun Game() {
-    var state by remember {
+    val (state, setState) = remember {
         val initialBoard = List(9) {
             null
         }
@@ -48,9 +46,11 @@ fun Game() {
                 val playing = gameState as? GameState.Playing
                 if (playing != null) {
                     val nextHistory = history + playing.calculateNextState(i)
-                    state = state.copy(
-                        gameStateHistory = nextHistory,
-                        currentStep = nextHistory.lastIndex
+                    setState(
+                        state.copy(
+                            gameStateHistory = nextHistory,
+                            currentStep = nextHistory.lastIndex
+                        )
                     )
                 }
             }
@@ -64,8 +64,10 @@ fun Game() {
                     Li {
                         Button(attrs = {
                             onClick {
-                                state = state.copy(
-                                    currentStep = i
+                                setState(
+                                    state.copy(
+                                        currentStep = i
+                                    )
                                 )
                             }
                         }) {
