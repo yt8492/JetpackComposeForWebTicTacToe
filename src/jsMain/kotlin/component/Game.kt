@@ -3,13 +3,13 @@ package component
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.web.elements.Button
-import androidx.compose.web.elements.Div
-import androidx.compose.web.elements.Li
-import androidx.compose.web.elements.Ol
-import androidx.compose.web.elements.Text
 import model.GameState
 import model.Player
+import org.jetbrains.compose.web.dom.Button
+import org.jetbrains.compose.web.dom.Div
+import org.jetbrains.compose.web.dom.Li
+import org.jetbrains.compose.web.dom.Ol
+import org.jetbrains.compose.web.dom.Text
 
 @Composable
 fun Game() {

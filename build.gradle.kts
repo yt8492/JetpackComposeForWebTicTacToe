@@ -1,6 +1,6 @@
 plugins {
-    kotlin("multiplatform") version "1.4.32"
-    id("org.jetbrains.compose") version "0.0.0-web-dev-12"
+    kotlin("multiplatform") version "1.5.31"
+    id("org.jetbrains.compose") version "1.0.0"
 }
 
 group = "com.yt8492"
@@ -9,6 +9,7 @@ version = "1.0.0"
 repositories {
     mavenCentral()
     maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+    google()
 }
 
 kotlin {
@@ -29,7 +30,7 @@ kotlin {
     sourceSets {
         val jsMain by getting {
             dependencies {
-                implementation(compose.web.web)
+                implementation(compose.web.core)
                 implementation(compose.runtime)
             }
         }

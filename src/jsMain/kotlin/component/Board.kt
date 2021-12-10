@@ -1,8 +1,8 @@
 package component
 
 import androidx.compose.runtime.Composable
-import androidx.compose.web.elements.Div
 import model.GameState
+import org.jetbrains.compose.web.dom.Div
 
 @Composable
 fun Board(
